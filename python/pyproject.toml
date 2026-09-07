@@ -1,0 +1,28 @@
+[build-system]
+requires = ["maturin>=1.9,<2"]
+build-backend = "maturin"
+
+[project]
+name = "pydiskann"
+version = "0.5.5"
+description = "Python bindings for diskann-rs: disk-based Vamana ANN search with filtering, incremental updates and quantization"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Repository = "https://github.com/lukaesch/diskann-rs"
+
+[tool.maturin]
+module-name = "pydiskann"
+strip = true
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

@@ -1,0 +1,18 @@
+[package]
+name = "pydiskann"
+version = "0.5.5"
+edition = "2021"
+
+[lib]
+name = "diskann_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+diskann = { package = "diskann-rs", path = ".." }
+object_store = { version = "0.14.1", optional = true, features = ["aws"] }
+pyo3 = { version = "0.29", features = ["extension-module", "abi3-py39"] }
+rayon = "1"
+tokio = { version = "1", features = ["rt-multi-thread"], optional = true }
+
+[features]
+object-store = ["dep:object_store", "dep:tokio", "diskann/object-store"]
